@@ -2,7 +2,7 @@ create database db_escola;
 use db_escola;
 
 create table tb_alunes(
-id_alune bigint(7) auto_increment,	
+id_alunes bigint(7) auto_increment,	
 nome varchar (25) not null,
 idade int,
 ano int,
