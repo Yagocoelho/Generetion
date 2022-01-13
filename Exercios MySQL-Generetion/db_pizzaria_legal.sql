@@ -29,7 +29,7 @@ sabor varchar (150) not null,
 valor bigint(20) not null,
 caixa varchar(50) not null, 
 refrigerante varchar(50) not null, 
-fk_id_categoria int, -- só coloca o not null, se ela NÃO PUDER  ficar vazia.
+fk_id_categoria int,
 foreign key(fk_id_categoria) references tb_categoria(id)
 );
 
@@ -48,14 +48,13 @@ INSERT INTO db_pizzaria_legal.tb_pizza(`sabor`,`valor`, `caixa`,`refrigerante`, 
 
 select * from tb_pizza;
 
--- nesse select, temos que referenciar todo o caminho, banco de dados, tabela e coluna
+
 select * from tb_pizza where valor > 45;
 select * from db_pizzaria_legal.tb_pizza where valor between 29 and 60;
 select * from db_pizzaria_legal.tb_pizza where sabor like '%c%';
 
--- fazendo inner join 
-            -- tabela_a --   -- tabela_b --     
+     
 select*from tb_pizza p inner join tb_categoria c on p.fk_id_categoria = c.id;
 
--- puxando as pizzas de uma categoria específica.
+
 select*from tb_categoria c inner join tb_pizza p on p.fk_id_categoria = c.id where categoria = "doce";
